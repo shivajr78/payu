@@ -6,11 +6,11 @@ import axios from "axios";
 
 function App() {
     const [balance, setBalance] = useState("");
-    
+    const url = "https://payu-backend-vl2j.onrender.com"
     useEffect(() => {
         const fetchInitialBalance = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/transactions/balance');
+                const response = await axios.get(url + '/api/transactions/balance');
                 setBalance(response.data.totalBalance);
             } catch (error) {
                 console.error('Error fetching initial balance:', error);

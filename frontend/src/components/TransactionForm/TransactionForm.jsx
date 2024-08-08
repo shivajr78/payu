@@ -6,6 +6,7 @@ const TransactionForm = ({ updateBalance }) => {
   const [email, setEmail] = useState("");
   const [amount, setAmount] = useState("");
   const [transactionType, setTransactionType] = useState("deposit");
+  const urll = "https://payu-backend-vl2j.onrender.com"
 
   const handleTransaction = async () => {
     if (!email || !amount) {
@@ -14,7 +15,7 @@ const TransactionForm = ({ updateBalance }) => {
     }
 
     try {
-      const url = `http://localhost:5000/api/transactions/${transactionType}`;
+      const url =  urll + `/api/transactions/${transactionType}`;
       const response = await axios.post(url, {
         email,
         amount: parseFloat(amount),

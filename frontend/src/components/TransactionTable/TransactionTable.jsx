@@ -7,6 +7,7 @@ const TransactionTable = () => {
   const [filterType, setFilterType] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const url = "https://payu-backend-vl2j.onrender.com";
 
   useEffect(() => {
     fetchTransactions();
@@ -15,7 +16,7 @@ const TransactionTable = () => {
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/transactions"
+        url + "/api/transactions"
       );
       let filteredTransactions = response.data;
 
